@@ -28,6 +28,10 @@
 
     <h3>Virtual Scroll (10000 Items)</h3>
     <p-multiSelect [options]="items" [showToggleAll]="false" [(ngModel)]="item" [panelStyle]="{minWidth:'12em'}" [virtualScroll]="true" [filter]="true" [itemSize]="34"></p-multiSelect>
+
+    <h3>Default selection</h3>
+    <p-multiSelect [options]="carsWithSelection" [(ngModel)]="selectedCars3" [panelStyle]="{minWidth:'12em'}" selectedItemsLabel="{0}/{1} cars selected"></p-multiSelect>
+    <p>Selected Cars: {{selectedCars3}}</p>
 </div>
 
 <div class="content-section documentation">
@@ -330,7 +334,8 @@ export class MyModel &#123;
                             <td>selectedItemsLabel</td>
                             <td>string</td>
                             <td>&#123;0&#125; items selected</td>
-                            <td>Label to display after exceeding max selected labels.</td>
+                            <td>Label to display after exceeding max selected labels.
+                                String &#123;0&#125; will be replaced with the selected items count, &#123;1&#125; with the total amount of options.</td>
                         </tr>
                         <tr>
                             <td>showToggleAll</td>
@@ -570,6 +575,10 @@ export class MyModel &#123;
 
 &lt;h3&gt;Virtual Scroll (10000 Items)&lt;/h3&gt;
 &lt;p-multiSelect [options]="items" [showToggleAll]="false" [(ngModel)]="item" [panelStyle]="&#123;minWidth:'12em'&#125;" [virtualScroll]="true" [itemSize]="34" [filter]="false"&gt;&lt;/p-multiSelect&gt;
+
+&lt;h3&gt;Default selection&lt;/h3&gt;
+&lt;p-multiSelect [options]="carsWithSelection" [(ngModel)]="selectedCars3" [panelStyle]="&#123;minWidth:'12em'&#125;" selectedItemsLabel="&#123;0&#125;/&#123;1&#125; cars selected"&gt;&lt;/p-multiSelect&gt;
+&lt;p&gt;Selected Cars: &#123;&#123;selectedCars3&#125;&#125;&lt;/p&gt;
 </code>
 </pre>
 
@@ -602,9 +611,13 @@ export class MultiSelectDemo &#123;
 
     cars: SelectItem[];
 
+    carsWithSelection: SelectItem[];
+
     selectedCars1: string[] = [];
-    
+
     selectedCars2: string[] = [];
+
+    selectedCars3: string[] = [];
 
     items: SelectItem[];
 
@@ -621,6 +634,18 @@ export class MultiSelectDemo &#123;
             &#123;label: 'Mercedes', value: 'Mercedes'&#125;,
             &#123;label: 'Renault', value: 'Renault'&#125;,
             &#123;label: 'VW', value: 'VW'&#125;,
+            &#123;label: 'Volvo', value: 'Volvo'&#125;,
+        ];
+        this.carsWithSelection = [
+            &#123;label: 'Audi', value: 'Audi', defaultSelected: true&#125;,
+            &#123;label: 'BMW', value: 'BMW'&#125;,
+            &#123;label: 'Fiat', value: 'Fiat', defaultSelected: true&#125;,
+            &#123;label: 'Ford', value: 'Ford'&#125;,
+            &#123;label: 'Honda', value: 'Honda', defaultSelected: true&#125;,
+            &#123;label: 'Jaguar', value: 'Jaguar'&#125;,
+            &#123;label: 'Mercedes', value: 'Mercedes', defaultSelected: true&#125;,
+            &#123;label: 'Renault', value: 'Renault'&#125;,
+            &#123;label: 'VW', value: 'VW', defaultSelected: true&#125;,
             &#123;label: 'Volvo', value: 'Volvo'&#125;,
         ];
 

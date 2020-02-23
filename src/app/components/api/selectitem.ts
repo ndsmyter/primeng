@@ -5,4 +5,5 @@ export interface SelectItem {
     icon?: string;
     title?: string;
     disabled?: boolean;
+    defaultSelected?: boolean;
 }

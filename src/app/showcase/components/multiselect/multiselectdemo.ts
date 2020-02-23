@@ -28,9 +28,13 @@ export class MultiSelectDemo {
 
     cars: SelectItem[];
 
+    carsWithSelection: SelectItem[];
+
     selectedCars1: string[] = [];
-    
+
     selectedCars2: string[] = [];
+
+    selectedCars3: string[] = [];
 
     items: SelectItem[];
 
@@ -49,7 +53,19 @@ export class MultiSelectDemo {
             {label: 'VW', value: 'VW'},
             {label: 'Volvo', value: 'Volvo'},
         ];
-        
+        this.carsWithSelection = [
+            {label: 'Audi', value: 'Audi', defaultSelected: true},
+            {label: 'BMW', value: 'BMW'},
+            {label: 'Fiat', value: 'Fiat', defaultSelected: true},
+            {label: 'Ford', value: 'Ford'},
+            {label: 'Honda', value: 'Honda', defaultSelected: true},
+            {label: 'Jaguar', value: 'Jaguar'},
+            {label: 'Mercedes', value: 'Mercedes', defaultSelected: true},
+            {label: 'Renault', value: 'Renault'},
+            {label: 'VW', value: 'VW', defaultSelected: true},
+            {label: 'Volvo', value: 'Volvo'},
+        ];
+
         this.items = [];
         for (let i = 0; i < 10000; i++) {
             this.items.push({label: 'Item ' + i, value: 'Item ' + i});
